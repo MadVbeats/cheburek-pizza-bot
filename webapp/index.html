@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Чебурек и Пицца</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <h1>🥟 Чебурек и Пицца</h1>
+      <span class="badge">Mini App</span>
+    </div>
+    <p class="subtitle">ул. Ленина, 1 · 10:00–22:00 · +7 900 000-00-00</p>
+    <div id="cats" class="cats"></div>
+  </header>
+
+  <main id="items" class="items"></main>
+
+  <div id="cartBar" class="cart-bar hidden">
+    <div class="cart-info">
+      <span id="cartCount">0 позиций</span>
+      <span id="cartTotal" class="cart-total">0 ₽</span>
+    </div>
+    <button id="openCartBtn" class="btn btn-primary">Корзина</button>
+  </div>
+
+  <!-- Cart / Checkout modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-sheet">
+      <div class="sheet-handle"></div>
+      <h2>🛒 Ваша корзина</h2>
+      <div id="cartLines" class="cart-lines"></div>
+      <div class="total-row">Итого: <b id="modalTotal">0 ₽</b></div>
+
+      <form id="orderForm" class="form">
+        <h3>Оформление</h3>
+        <input id="name" type="text" placeholder="Как вас зовут?" required minlength="2" />
+        <input id="phone" type="tel" placeholder="+7 900 123-45-67" required />
+        <div class="method-row">
+          <button type="button" data-method="pickup" class="method-btn active">🚶 Самовывоз</button>
+          <button type="button" data-method="delivery" class="method-btn">🚚 Доставка</button>
+        </div>
+        <input id="address" type="text" placeholder="Адрес доставки" class="hidden" />
+        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">✅ Оформить заказ</button>
+        <button type="button" class="btn btn-ghost btn-block" id="closeModalBtn">Продолжить покупки</button>
+        <p id="formHint" class="hint"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
